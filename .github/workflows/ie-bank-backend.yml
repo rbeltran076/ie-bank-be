@@ -11,7 +11,9 @@ permissions:
   id-token: write
 
 env:
-  BACKEND_WEBAPP_DEV: jseijas-be-dev
+  BACKEND_WEBAPP_DEV: ronald-be-dev
+  SUBSCRIPTION_ID: e0b9cada-61bc-4b5a-bd7a-52c606726b3b
+  USER_ALIAS: ronald 
 
 jobs:
   build:
@@ -62,7 +64,7 @@ jobs:
       with:
         name: python-app
         path: .
-    
+
     - uses: azure/login@v2
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -73,4 +75,3 @@ jobs:
       with:
         app-name: ${{ env.BACKEND_WEBAPP_DEV }}
         package: .
-    
